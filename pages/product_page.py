@@ -21,3 +21,11 @@ class ProductPage(BasePage):
         if element.text==text:
             find = True
         return find
+    
+    def should_not_be_success_message(self): 
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+            
+    def success_message_should_be_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+               "Success message does not disappeared, but should be"
